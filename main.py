@@ -13,7 +13,7 @@ fps = FPS().start()
 block = True
 name = None
 frames = []
-
+# $$$$$$$$$$$$$$$$
 
 def voice():
     if os.name == 'nt':
