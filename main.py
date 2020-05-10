@@ -48,15 +48,15 @@ ap.add_argument(
 args = vars(ap.parse_args())
 
 confidence_ = args["confidence"]
-print("[INFO] loading face detector...")
+print("[INFO] загрузка детектора лица...")
 protoPath = os.path.sep.join([args["detector"], "deploy.prototxt"])
 modelPath = os.path.sep.join([args["detector"], "res10_300x300_ssd_iter_140000.caffemodel"])
 detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
-print("[INFO] loading face recognizer...")
+print("[INFO] загрузка распознавателя лица...")
 embedder = cv2.dnn.readNetFromTorch(args["embedding_model"])
 recognizer = pickle.loads(open(args["recognizer"], "rb").read())
 le = pickle.loads(open(args["le"], "rb").read())
-print("[INFO] starting video stream...")
+print("[INFO] запуск видео потока...")
 
 left_eye = USBCamVideoStream(src=0).start()
 right_eye = USBCamVideoStream(src=1).start()  # для raspberry src=2
